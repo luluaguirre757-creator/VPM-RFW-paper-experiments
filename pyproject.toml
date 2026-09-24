@@ -1,0 +1,5 @@
+[project]
+name = "vpm-rfw-paper-experiments"
+version = "1.0.0"
+description = "Experiment code for the VPM-RFW ICLR 2027 paper"
+requires-python = "==3.12.*"

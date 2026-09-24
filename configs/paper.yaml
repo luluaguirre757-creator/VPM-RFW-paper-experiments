@@ -1,0 +1,207 @@
+seed: 0
+output_dir: results
+synthetic:
+  N:
+  - 36
+  - 42
+  - 48
+  K:
+  - 8
+  - 10
+  - 12
+  tasks: 20
+  quick_tasks: 3
+  sequences: 15
+  quick_sequences: 1
+  appendix_tasks: 8
+  appendix_sequences_per_point: 2
+  drift_sequences_per_point: 10
+  drift_sequences_per_point_quick: 1
+  drift_bootstrap_resamples: 2000
+  drift_bootstrap_resamples_quick: 200
+  total_budget_sequences_per_point: 10
+  total_budget_sequences_per_point_quick: 1
+  total_budget_seed_policy: random
+  total_budget_stability_guard: true
+  total_budget_min_relative_singular_value: 0.01
+  total_budget_max_seed_draws: 100
+  total_budget_bootstrap_resamples: 2000
+  total_budget_bootstrap_resamples_quick: 200
+  total_budget: 48
+  operational_floor_margin: 1
+  operational_floors:
+  - 9
+  - 11
+  - 13
+  total_budget_sweep:
+  - 36
+  - 42
+  - 48
+  - 60
+  - 72
+  - 84
+  - 96
+  - 108
+  - 120
+  mu: 0.1
+  u0: 0.45
+  eta_c: 0.2
+  drift: 0.02
+  drift_sweep:
+  - 0.0
+  - 0.005
+  - 0.01
+  - 0.02
+  - 0.035
+  - 0.05
+  - 0.075
+  - 0.10
+  design_scales:
+  - 0.0
+  - 0.005
+  - 0.01
+  - 0.02
+  - 0.04
+  j_test: 20
+  quick_j_test: 6
+  test_max: 0.05
+  main_row_sigmas:
+  - 0.0
+  - 0.5
+  row_sigma_sweep:
+  - 0.75
+  main_sequence: recurrent
+  appendix_sequences:
+  - smooth
+  - abrupt
+  snr_db: 20.0
+  empirical_trials: 5
+  quick_empirical_trials: 1
+  empirical_tasks:
+  - 4
+  - 14
+  quick_empirical_tasks:
+  - 0
+  runtime_warmups: 1
+  runtime_repeats: 5
+  runtime_tasks:
+  - 4
+  - 14
+  quick_runtime_tasks:
+  - 0
+  sampling_stride: 2
+  epsilon_abs: 0.005
+  epsilon_sweep:
+  - 0.02
+  - 0.005
+  - 0.002
+  run_cost_ratio_sweep: false
+  cost_ratio_sweep:
+  - 0.1
+  - 1.0
+  - 10.0
+  run_hindsight_diagnostic: true
+  hindsight_tasks: 8
+  hindsight_sequences: 1
+  w_lmo: 1.0
+  w_fo: 1.0
+  policies:
+  - cold
+  - prev
+  - nearest
+  - vpm
+  appendix_policies:
+  - v_only
+  - omega_only
+  solver_execution: practical
+  practical_solver:
+    outer_gap_tol: 0.02
+    inner_residual_tol: 0.0002
+    max_outer: 15
+    quick_max_outer: 8
+    max_ppa: 6
+    quick_max_ppa: 3
+    max_resolvent: 25
+    quick_max_resolvent: 15
+  regularity_caps:
+    bar_kappa: 8.0
+    bar_kappa_ms: 8.0
+    bar_kappa_cross: 8.0
+    r_ppa: 1000000.0
+    alpha_ppa: 1.0
+    status: numerical_proxy
+    enforce_local_basin: false
+    global_cold_error_bound_verified: false
+    trajectory_cover_verified: false
+  runtime_benchmark_sequences: 3
+hsi:
+  datasets:
+  - KSC
+  main_datasets:
+  - KSC
+  quick_datasets:
+  - KSC
+  data_dir: data
+  rank: 20
+  total_budget: 80
+  warmup: 6
+  history_scenarios: 5
+  evaluation_bands: 36
+  evaluation_bands_by_dataset:
+    KSC: 36
+  band_selection: contiguous_windows
+  block_bootstrap_length: 3
+  bootstrap_resamples: 1000
+  mu: 0.1
+  u0: 0.45
+  eta_c: 0.2
+  seed: 0
+  snr_db: 30.0
+  epsilon_abs: 0.005
+  w_lmo: 1.0
+  w_fo: 1.0
+  policies:
+  - cold
+  - prev
+  - nearest
+  - vpm
+  solver_execution: practical
+  practical_solver:
+    outer_gap_tol: 0.02
+    inner_residual_tol: 0.0002
+    max_outer: 6
+    quick_max_outer: 6
+    max_ppa: 2
+    quick_max_ppa: 2
+    max_resolvent: 10
+    quick_max_resolvent: 10
+  quick_bands: 2
+  regularity_caps:
+    bar_kappa: 8.0
+    bar_kappa_ms: 8.0
+    bar_kappa_cross: 8.0
+    r_ppa: 1000000.0
+    alpha_ppa: 1.0
+    status: numerical_proxy
+    enforce_local_basin: false
+    global_cold_error_bound_verified: false
+    trajectory_cover_verified: false
+  mode_budget_floor: 30
+  reconstruction_trust_quantile: 0.5
+  reconstruction_trust_min: 0.25
+  reconstruction_trust_max: 4.0
+  quick_windows: 1
+  evaluation_windows_by_dataset:
+    KSC: 9
+  rank_tol: 1.0e-10
+convergence_sensitivity:
+  cap_multipliers:
+  - 1
+  - 2
+  - 4
+  tasks: 6
+  quick_tasks: 2
+  sequences: 2
+  quick_sequences: 1
+  row_sigma: 0.5
+  sequence: recurrent
